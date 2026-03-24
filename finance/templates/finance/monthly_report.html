@@ -1,0 +1,17 @@
+<h1>Rapport financier {{ month }}/{{ year }}</h1>
+<p>Solde total : {{ balance }}</p>
+<table border="1" cellspacing="0" cellpadding="5">
+<tr>
+<th>Date</th><th>Type</th><th>Montant</th><th>Catégorie</th><th>Membre</th><th>Description</th>
+</tr>
+{% for t in transactions %}
+<tr>
+<td>{{ t.date }}</td>
+<td>{{ t.type }}</td>
+<td>{{ t.amount }}</td>
+<td>{{ t.category.name }}</td>
+<td>{{ t.member }}</td>
+<td>{{ t.description }}</td>
+</tr>
+{% endfor %}
+</table>
