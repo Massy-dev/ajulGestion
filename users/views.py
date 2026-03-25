@@ -22,6 +22,10 @@ class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
     parser_classes = [MultiPartParser, FormParser]
     
+    def perform_create(self, serializer):
+        serializer.save(
+            role=Role.objects.get(name="MEMBRE")  # ou ID fixe
+        )
     def get_serializer_class(self):
         if self.action == "create":
             return UserCreateSerializer
