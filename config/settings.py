@@ -14,19 +14,6 @@ from pathlib import Path
 import dj_database_url
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
-
-if not User.objects.filter(phone="0700000000").exists():
-    User.objects.create_superuser(
-        phone="0700000000",
-        username="ajul",
-        password="ajul2026"
-    )
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
