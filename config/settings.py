@@ -80,13 +80,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-if os.environ.get("DATABASE_URL"):
+if os.environ.get("DATABASE_PUBLIC_URL"):
     DATABASES = {
-        "default": dj_database_url.config(
-            conn_max_age=600,
-            ssl_require=True)
-            
-    }
+    "default": dj_database_url.parse(
+        os.environ.get("DATABASE_PUBLIC_URL")
+    )
+}
     print("db-- 1")
 else:
     DATABASES = {
