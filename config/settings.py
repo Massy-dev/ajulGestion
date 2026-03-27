@@ -14,6 +14,17 @@ from pathlib import Path
 import dj_database_url
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+if not User.objects.filter(phone="0700000000").exists():
+    User.objects.create_superuser(
+        phone="0700000000",
+        username="ajul",
+        password="ajul2026"
+    )
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -87,7 +98,9 @@ if os.environ.get("DATABASE_URL"):
         "default": dj_database_url.config(
             conn_max_age=600,
             ssl_require=True)
+            
     }
+    print("db-- 1")
 else:
     DATABASES = {
         'default': {
@@ -99,8 +112,9 @@ else:
             'PORT': '5432',
         }
     }
+    print("db-- 2")
 print("DB URL ",os.environ.get("DATABASE_URL"))
-# Password validation
+# Password validation zf
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -159,7 +173,6 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
-
 
 
 #Envoie message Twilio
