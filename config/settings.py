@@ -99,7 +99,7 @@ else:
             'PORT': '5432',
         }
     }
-
+print("DB URL ",os.environ.get("DATABASE_URL"))
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
