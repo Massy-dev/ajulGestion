@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-)7qp7wa=%ro@-#-c0l7n211b396je90o8@)blte!f+49a2oi_n'
 #SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -80,13 +80,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-if os.environ.get("DATABASE_PUBLIC_URL"):
+if os.environ.get("DATABASE_URL"):
     DATABASES = {
     "default": dj_database_url.parse(
-        os.environ.get("DATABASE_PUBLIC_URL")
+        os.environ.get("DATABASE_URL")
     )
 }
-    print("db-- 1")
+   
 else:
     DATABASES = {
         'default': {
@@ -98,7 +98,7 @@ else:
             'PORT': '5432',
         }
     }
-    print("db-- 2")
+  
 print("DB URL ",os.environ.get("DATABASE_URL"))
 # Password validation zf
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators

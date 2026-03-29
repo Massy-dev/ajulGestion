@@ -14,6 +14,7 @@ RUN pip install --upgrade pip && \
 
 
 COPY . .
+RUN mkdir -p staticfiles media
 RUN python manage.py collectstatic --noinput
 EXPOSE 8000
 
