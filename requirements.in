@@ -1,0 +1,10 @@
+django
+djangorestframework
+psycopg2-binary
+django-cors-headers
+gunicorn
+djangorestframework-simplejwt
+twilio
+xhtml2pdf
+openpyxl
+dj-database-url
