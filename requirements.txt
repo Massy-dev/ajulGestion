@@ -150,6 +150,8 @@ webencodings==0.5.1
     #   cssselect2
     #   html5lib
     #   tinycss2
+whitenoise==6.12.0
+    # via -r requirements.in
 xhtml2pdf==0.2.17
     # via -r requirements.in
 yarl==1.9.4
