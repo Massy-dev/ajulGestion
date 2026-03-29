@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-)7qp7wa=%ro@-#-c0l7n211b396je90o8@)blte!f+49a2oi_n
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
-
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://ajul-front-end.vercel.app",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,7 +59,10 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True  # Pour développement
 ROOT_URLCONF = 'config.urls'
 AUTH_USER_MODEL = 'users.CustomUser'
-
+CSRF_TRUSTED_ORIGINS=[
+    "https://ajul-front-end.vercel.app",
+    "https://ajulgestion-production.up.railway.app",
+    ]
 
 TEMPLATES = [
     {
